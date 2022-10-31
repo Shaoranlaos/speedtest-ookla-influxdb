@@ -32,5 +32,5 @@ ENV IFDB_DBNAME HomeIoT
 
 USER speedtest
 
-CMD ["/app/startscript.sh"]
+ENTRYPOINT ["/app/startscript.sh"]
 
