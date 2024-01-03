@@ -37,7 +37,7 @@ sent_data()
   echo $IFDB_MEASUREMENT,room=Internet,type=Download value=$Download_Rate >> /tmp/temp.txt
   echo $IFDB_MEASUREMENT,room=Internet,type=Ping value=$Ping >> /tmp/temp.txt
   if [ -n "$IFDB_TOKEN" ]; then
-    /usr/bin/curl -XPOST -H "AUTHORIZATION: Token $IFDB_TOKEN" "https://$IFDB_SERVER/api/v2/write?org=$IFDB_ORG&bucket=$IFDB_BUCKET" --insecure --data-binary @/tmp/temp.txt
+    /usr/bin/curl -XPOST -H "Authorization: Token $IFDB_TOKEN" "https://$IFDB_SERVER/api/v2/write?org=${IFDB_ORG}&bucket=${IFDB_BUCKET}" --insecure --data-binary @/tmp/temp.txt
   else
     /usr/bin/curl -XPOST "https://$IFDB_SERVER/write?db=$IFDB_DBNAME" --insecure --data-binary @/tmp/temp.txt
   fi
